@@ -1,0 +1,42 @@
+Prompt- 01:
+I need to build an LRU (Least Recently Used) Cache. Let's start simple.
+
+Create a Cache class with:
+- Cache(capacity) — constructor, capacity must be a positive integer
+- get(key) — returns the value if the key exists, otherwise -1
+- put(key, value) — inserts or updates a key/value pair
+
+Don't worry about eviction yet, just get the basic get/put working. What language do you recommend for this — I'm open to suggestions, but I mainly work in JavaScript/Node.
+
+Prompt- 02:
+Now let's add the actual LRU logic:
+- A successful get() should mark that key as most recently used
+- put() should also mark the key as most recently used
+- When the cache exceeds capacity, evict the least recently used entry
+
+Both get() and put() need to run in O(1) average time — so explain what data structure choice makes that possible before you write the code.
+
+Prompt- 03:
+Walk through this example step by step and confirm the output matches:
+
+cache = Cache(2)
+cache.put("A", 10)
+cache.put("B", 20)
+cache.get("A")      -> 10
+cache.put("C", 30)
+cache.get("B")      -> -1
+cache.get("C")      -> 30
+cache.get("A")      -> 10
+
+If it doesn't match, fix the implementation.
+
+Prompt- 04:
+Now write test/example code covering:
+- The example above
+- get() on a missing key
+- Updating an existing key's value (and confirming it refreshes recency)
+- A cache with capacity 1
+- Confirming that calling get() on a key protects it from eviction
+- Invalid capacity (0, negative, non-integer) being rejected
+
+Run the tests and show me the output.
